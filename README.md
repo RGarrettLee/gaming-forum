@@ -16,4 +16,6 @@ We use a log in requirement for the POST route and thus employ use of sessions a
 
 Layout wireframe:
 
+![wireframe 1](https://user-images.githubusercontent.com/104922988/176238728-61029146-1a7d-494d-9e24-2daed25f67ba.PNG)
+![wireframe 2](https://user-images.githubusercontent.com/104922988/176238757-dbc2a694-08cb-4ced-82c5-95c8f6c5f637.PNG)
 
