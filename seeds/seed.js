@@ -4,17 +4,17 @@ const { User, Post, Comment, Board } = require('../models');
 const boardData = require('./boardData.json');
 const userData = require('./userData.json');
 const postData = require('./postData.json');
-const commentData = require('./commendData.json');
+const commentData = require('./commentData.json');
 
 const seedDatabase = async () => {
     await sequelize.sync({ force: true });
 
-    await Board.bulkCreate(boardData, {
+    await User.bulkCreate(userData, {
         individualHooks: true,
         returning: true,
     });
 
-    await User.bulkCreate(userData, {
+    await Board.bulkCreate(boardData, {
         individualHooks: true,
         returning: true,
     });

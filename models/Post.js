@@ -1,5 +1,6 @@
 const { Model, DataTypes, Sequelize } = require('sequelize');
 const sequelize = require('../config/connection');
+const slugify = require('slugify');
 
 class Post extends Model {}
 
@@ -29,6 +30,9 @@ Post.init(
             type: DataTypes.STRING,
             allowNull: false
         },
+        slug: {
+            type: DataTypes.STRING
+        },
         user_id: {
             type: DataTypes.INTEGER,
             references: {
@@ -45,6 +49,12 @@ Post.init(
         },
     },
     {
+        hooks: {
+            beforeCreate: async (newPost) => {
+                newPost.slug = slugify(newPost.title);
+                return newPost;
+            },
+        },
         sequelize,
         timestamps: false,
         freezeTableName: true,
