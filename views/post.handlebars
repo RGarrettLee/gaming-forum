@@ -1,0 +1,28 @@
+<div>
+    <h1>{{post.title}}</h1>
+    <br>
+    <div>
+        Genre: {{post.genre}}
+    </div>
+    <div>
+        Title: {{post.title}}
+    </div>
+    <div>
+        Date: {{post.date}}
+    </div>
+    <div>
+        Username: {{user.username}}
+    </div>
+    <div id="postBox">
+        {{post.content}}
+    </div>
+    <div>
+        <form>
+        <div class="form-group"> 
+            <textarea class="form-control" id="postInput" rows="3" placeholder="add a comment..."></textarea>
+        </div>
+        <button>Post</button>
+    </form>
+    </div>
+
+</div>
