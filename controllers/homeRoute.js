@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { User, Board } = require('../models');
 const withAuth = require('../utils/auth');
 
+//get all boards for homepage
 router.get('/', async (req, res) => {
   try {
     const boardData = await Board.findAll({
@@ -20,6 +21,29 @@ router.get('/', async (req, res) => {
   }
 });
 
+// get single board
+router.get('/board/:id', async (req, res) => {
+  try {
+    const boardData = await Board.findByPk(req.params.id, {
+      include: [
+        User,
+        {
+          model: board,
+          include: [User],
+        },
+      ],
+    });
+    if (boardData) {
+      const board = boardData.get({ plain: true });
+      res.render('single-board', { post });
+    } else {
+      res.status(404).end();
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('/');
@@ -27,6 +51,15 @@ router.get('/login', (req, res) => {
   }
 
   res.render('login');
+});
+
+
+router.get('/signup', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+  res.render('signup');
 });
 
 module.exports = router;
