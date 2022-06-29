@@ -18,6 +18,12 @@
         "username": "Sal",
         "email": "sal@email.com",
         "password": "salssupersecurepassword"
+    },
+    {
+        "username": "Rudie",
+        "email": "rudie@email.com",
+        "password": "topchef1234"
     }
 ]
+
   

@@ -5,10 +5,18 @@
     },
     {
         "name": "Battlefield",
-        "user_id": "2"
+        "user_id": "5"
     },
     {
         "name": "Elden Ring",
         "user_id": "3"
+    },
+    {
+        "name": "Legend of Zelda",
+        "user_id":"2"
+    },
+    {
+        "name": "The Sims",
+        "user_id": "4"
     }
 ]
