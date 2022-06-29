@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
         include: [User],
       });
       const comments = commentData.map((post) => post.get({ plain: true }));
-      res.render('all-posts', { posts });
+      res.render('post', { posts });
     } catch (err) {
       res.status(500).json(err);
     }
