@@ -18,6 +18,11 @@ User.hasMany(Post, {
     onDelete: 'CASCADE'
 });
 
+User.hasMany(Board, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
+});
+
 Post.hasMany(Comment, {
     foreignKey: 'post_id',
     onDelete: 'CASCADE'
@@ -39,8 +44,8 @@ Comment.belongsTo(Post, {
     foreignKey: 'post_id'
 });
 
+Board.belongsTo(User, {
+    foreignKey: 'user_id'
+});
+
 module.exports = { User, Board, Post, Comment };
-
-
-// might need to add user.hasmany(Board) FK user_id ondeletecascade
-//board belongsto (user) FK user_id on deletecascade

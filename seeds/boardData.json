@@ -1,11 +1,14 @@
 [
     {
-        "name": "Call of Duty"
+        "name": "COD Zombies Easter Eggs",
+        "user_id": "1"
     },
     {
-        "name": "Battlefield"
+        "name": "Battlefield",
+        "user_id": "2"
     },
     {
-        "name": "Elden Ring"
+        "name": "Elden Ring",
+        "user_id": "3"
     }
 ]
