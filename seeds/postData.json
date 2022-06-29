@@ -5,5 +5,47 @@
         "content": "this is the worst map in the game",
         "user_id": 1,
         "board_id": 1
+    },
+    {
+        "title": "Ocarina of time: Song of Storms",
+        "genre": "RPG",
+        "content": "Can someone please remind me of the keys for this?",
+        "user_id": 2,
+        "board_id": 4
+    },
+    {
+        "title": "Majora's Mask: Easter Egg",
+        "genre": "RPG",
+        "content": "In the Clock Tower, if Link goes under the water in his Zora form, he can see four pieces of algae shaped like Nintendo 64 controllers.",
+        "user_id": 1,
+        "board_id": 4
+    },
+    {
+        "title": "1942: control points",
+        "genre": "FPS",
+        "content": "What do you find is the best strategy for placing your control points?",
+        "user_id": 5,
+        "board_id": 2
+    },
+    {
+        "title": "The Sims 4: Build mode errors",
+        "genre": "Social Simulation",
+        "content": "I keep getting insufficient funds but only in build mode, anyone else have this issue?",
+        "user_id": 4,
+        "board_id": 5
+    },
+    {
+        "title": "The Sims 1: Music",
+        "genre": "Social Simulation",
+        "content": "Okay but anyone else find the neighborhood 3 track slaps???",
+        "user_id": 2,
+        "board_id": 5
+    },
+    {
+        "title": "Keepsakes",
+        "genre": "RPG",
+        "content": "What keepsake should I start with?",
+        "user_id": 3,
+        "board_id": 3
     }
 ]
