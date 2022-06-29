@@ -40,3 +40,7 @@ Comment.belongsTo(Post, {
 });
 
 module.exports = { User, Board, Post, Comment };
+
+
+// might need to add user.hasmany(Board) FK user_id ondeletecascade
+//board belongsto (user) FK user_id on deletecascade

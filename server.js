@@ -32,7 +32,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-//app.use(routes); // uncomment when routes are made
+app.use(routes); // uncomment when routes are made
 
 app.get('*', (req, res) => { // handle 404 errors
     res.send('404 not found. Let\'s make a template for a 404')
