@@ -3,7 +3,9 @@
     <button id="createThreadBtn" > + create thread</button>
     <br>
     <ul>
-        <li> {{post.title}} created by {{post.user_id}} </li>
+        {{#each post.title as |title|}}
+        {{> board-details}}
+        {{/each}}
     </ul>
 </div>
 
@@ -14,6 +16,6 @@
             <textarea class="form-control" id="postInput" rows="3"></textarea>
         </div>
     </form>
-    <button>Post</button>
-    <button>Cancel</button>
+    <button class="btn btn-primary" type="submit" value="submit">Post</button>
+    <button class="btn btn-primary" type="reset" value="reset">Cancel</button>
 </div>
