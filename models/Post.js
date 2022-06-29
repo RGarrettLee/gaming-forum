@@ -51,7 +51,7 @@ Post.init(
     {
         hooks: {
             beforeCreate: async (newPost) => {
-                newPost.slug = slugify(newPost.title);
+                newPost.slug = slugify(newPost.title.toLowerCase());
                 return newPost;
             },
         },
