@@ -16,9 +16,9 @@ router.get('/', async (req, res) => {
     }
   });
   // get single post
-  router.get('/post/:id', async (req, res) => {
+  router.get('/post/:slug', async (req, res) => {
     try {
-      const postData = await Board.findByPk(req.params.id, {
+      const postData = await Board.findByPk(req.params.slug, {
         include: [
           User,
           {
@@ -47,11 +47,11 @@ router.post('/', withAuth, async (req, res) => {
       res.status(500).json(err);
     }
   });
-  router.put('/:id', withAuth, async (req, res) => {
+  router.put('/:slug', withAuth, async (req, res) => {
     try {
       const [affectedRows] = await Post.update(req.body, {
         where: {
-          id: req.params.id,
+          slug: req.params.slug,
         },
       });
       if (affectedRows > 0) {
@@ -63,11 +63,11 @@ router.post('/', withAuth, async (req, res) => {
       res.status(500).json(err);
     }
   });
-  router.delete('/:id', withAuth, async (req, res) => {
+  router.delete('/:slug', withAuth, async (req, res) => {
     try {
       const [affectedRows] = Post.destroy({
         where: {
-          id: req.params.id,
+          slug: req.params.slug,
         },
       });
       if (affectedRows > 0) {
