@@ -4,17 +4,9 @@
 
 
     <div id="postBox">
-        <div>
-            {{post.title}}
-            <br>
-            Created by: {{user.username}} on {{post.date}}
-        </div>
-
-        <div>
-            {{post.title}}
-            <br>
-            Created by: {{user.username}} on {{post.date}}
-        </div>
+        {{#each post.title as |title|}}
+        {{> postByGenre-details}}
+        {{/each}}
     </div>
 
 </div>
