@@ -11,11 +11,15 @@
         Date: {{post.date}}
     </div>
     <div>
-        Username: {{user.username}}
+        User: {{post.user.username}}
     </div>
+    <br>
+    <br>
     <div class="postBox">
         {{post.content}}
     </div>
+    <br>
+    <br>
     <div>
         <form>
             <div class="form-group"> 
@@ -25,8 +29,9 @@
         </form>
     </div>
     <div>
+        <h2>Comments</h2>
         <ul>
-            {{#each comment.content as |content|}}
+            {{#each post.comments as |comment|}}
             {{> post-comment-details}}
             {{/each}}
         </ul>
