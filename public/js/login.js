@@ -22,7 +22,7 @@ const loginFormHandler = async function(event) {
   };
 };
 
+const loginBtn = document.querySelector('#loginBtn');
 
-  document
-    .querySelector('#loginBtn')
+document
     .addEventListener('submit', loginFormHandler);
