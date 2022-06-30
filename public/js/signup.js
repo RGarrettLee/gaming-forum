@@ -23,6 +23,6 @@ const signupFormHandler = async function(event) {
     }
   };
 };
-  document
-    .querySelector('#signUpBtn')
-    .addEventListener('submit', signupFormHandler);
+const signupbtn =   document.querySelector('#signUpBtn');
+
+   document.addEventListener('submit', signupFormHandler);
