@@ -1,0 +1,19 @@
+html,body {
+    height: 100%;
+}
+
+.postBox{
+    border: 2px solid black;
+    background-color: lightslategray;
+}
+
+.loginDecor{
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.labelSpace{
+    width: 200px;
+    display: inline-block;
+    text-align: right;
+}
