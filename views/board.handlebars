@@ -3,7 +3,9 @@
     <button id="createThreadBtn" > + create thread</button>
     <br>
     <ul>
-        <li> {{post.title}} created by {{post.user_id}} </li>
+        {{#each board.posts as |post|}}
+        <a href="/post/{{post.slug}}"><li>{{post.title}} created by</li></a>
+        {{/each}}
     </ul>
 </div>
 

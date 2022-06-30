@@ -3,9 +3,9 @@
     <h2 class="page-title">Home</h2>
     </div>
     <ul class="list-group">
-        <li class="list-group-item">{{board.name}} created by {{user.username}}</li>
-        <li class="list-group-item">{{board.name}} created by {{user.username}}</li>
-        <li class="list-group-item">{{board.name}} created by {{user.username}}</li>
+        {{#each boards as |board|}}
+        <a href='/board/{{board.slug}}'><li class="list-group-item">{{board.name}} <p class="bold">created by {{board.user.username}}</p></li></a>
+        {{/each}}
     </ul>
     
 </div>
