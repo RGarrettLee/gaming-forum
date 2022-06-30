@@ -39,6 +39,6 @@ app.get('*', (req, res) => { // handle 404 errors
 });
 
 
-sequelize.sync({ force: true }).then(() => {
+sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.info(`Server is live at http://localhost:${PORT}`));
 });
