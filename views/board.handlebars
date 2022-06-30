@@ -2,11 +2,13 @@
     <h1>{{board.name}}</h1>
     <button id="createThreadBtn" > + create thread</button>
     <br>
-    <ul>
-        {{#each post.title as |title|}}
-        {{> board-details}}
-        {{/each}}
-    </ul>
+    <div class="postBox">
+        <ul>
+            {{#each post.title as |title|}}
+            {{> board-details}}
+            {{/each}}
+        </ul>
+    </div>
 </div>
 
 <div>
