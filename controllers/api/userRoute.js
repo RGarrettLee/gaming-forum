@@ -62,9 +62,4 @@ router.get('/logout', (req, res) => {
   }
 });
 
-
-
-router.post('/signup', (req, reds) => {
-
-})
 module.exports = router;
