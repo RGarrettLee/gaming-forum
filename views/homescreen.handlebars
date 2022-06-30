@@ -3,7 +3,7 @@
     <h2 class="page-title">Home</h2>
     </div>
     <ul class="list-group">
-        {{#each board.name as |name|}}
+        {{#each boards as |board|}}
         {{> homescreen-details}}
         {{/each}}
     </ul>
