@@ -11,6 +11,15 @@ Uses MVC structuring alongside mysql and sequelize to run the database. Node.JS 
 The layout of the application was handled via templates ran with handlebars.js.
 Uses GET and POST routes to show and update user forum content.
 We use a log in requirement for the POST route and thus employ use of sessions and cookies.
+API/libraries used include slugify to modify the user URL for better user experience and bootstrap as styling.
+
+
+
+User Story
+AS A gamer who plays in a variety of genres
+I WANT to visit a forum
+SO THAT I can create and view discussion boards, posts, and comments about different games
+
 
 
 

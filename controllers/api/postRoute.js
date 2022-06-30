@@ -7,18 +7,20 @@ const { Post, User } = require("../../models");
 router.get('/', async (req, res) => {
     try {
       const postData = await Post.findAll({
+        attributes: { exclude: ['password'] },
         include: [User],
       });
       const posts = postData.map((post) => post.get({ plain: true }));
-      res.render('all-posts', { posts });
+      res.render('board', { posts });
     } catch (err) {
       res.status(500).json(err);
     }
   });
   // get single post
-  router.get('/post/:id', async (req, res) => {
+  router.get('/post/:slug', async (req, res) => {
     try {
-      const postData = await Board.findByPk(req.params.id, {
+      const postData = await Board.findByPk(req.params.slug, {
+        attributes: { exclude: ['password'] },
         include: [
           User,
           {
@@ -29,7 +31,7 @@ router.get('/', async (req, res) => {
       });
       if (postData) {
         const post = postData.get({ plain: true });
-        res.render('single-post', { post });
+        res.render('post', { post });
       } else {
         res.status(404).end();
       }
@@ -47,11 +49,11 @@ router.post('/', withAuth, async (req, res) => {
       res.status(500).json(err);
     }
   });
-  router.put('/:id', withAuth, async (req, res) => {
+  router.put('/:slug', withAuth, async (req, res) => {
     try {
       const [affectedRows] = await Post.update(req.body, {
         where: {
-          id: req.params.id,
+          slug: req.params.slug,
         },
       });
       if (affectedRows > 0) {
@@ -63,11 +65,11 @@ router.post('/', withAuth, async (req, res) => {
       res.status(500).json(err);
     }
   });
-  router.delete('/:id', withAuth, async (req, res) => {
+  router.delete('/:slug', withAuth, async (req, res) => {
     try {
       const [affectedRows] = Post.destroy({
         where: {
-          id: req.params.id,
+          slug: req.params.slug,
         },
       });
       if (affectedRows > 0) {

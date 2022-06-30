@@ -2,9 +2,13 @@
     <h1>{{board.name}}</h1>
     <button id="createThreadBtn" > + create thread</button>
     <br>
-    <ul>
-        <li> {{post.title}} created by {{post.user_id}} </li>
-    </ul>
+    <div class="postBox">
+        <ul>
+            {{#each post.title as |title|}}
+            {{> board-details}}
+            {{/each}}
+        </ul>
+    </div>
 </div>
 
 <div>
@@ -14,6 +18,6 @@
             <textarea class="form-control" id="postInput" rows="3"></textarea>
         </div>
     </form>
-    <button>Post</button>
-    <button>Cancel</button>
+    <button class="btn btn-primary" type="submit" value="submit" id="postBtnBoard">Post</button>
+    <button class="btn btn-primary" type="reset" value="reset" id="cancelBtnBoard">Cancel</button>
 </div>

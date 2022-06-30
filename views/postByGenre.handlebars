@@ -3,18 +3,10 @@
     <h3> Select genre: </h3>
 
 
-    <div id="postBox">
-        <div>
-            {{post.title}}
-            <br>
-            Created by: {{user.username}} on {{post.date}}
-        </div>
-
-        <div>
-            {{post.title}}
-            <br>
-            Created by: {{user.username}} on {{post.date}}
-        </div>
+    <div class="postBox">
+        {{#each post.title as |title|}}
+        {{> postByGenre-details}}
+        {{/each}}
     </div>
 
 </div>

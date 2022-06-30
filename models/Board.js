@@ -31,7 +31,7 @@ Board.init(
     {
         hooks: {
             beforeCreate: async (newBoard) => { // slugify name into url
-                newBoard.slug = slugify(newBoard.name);
+                newBoard.slug = slugify(newBoard.name.toLowerCase());
                 return newBoard
             },
         },

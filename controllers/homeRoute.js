@@ -6,13 +6,13 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
   try {
     const boardData = await Board.findAll({
-      //attributes: { exclude: ['password'] },
+      attributes: { exclude: ['password'] },
       include: [User]
     });
 
     const boards = boardData.map((board) => board.get({ plain: true }));
 
-    res.render('main', {
+    res.render('layouts/main', {
       boards,
       logged_in: req.session.logged_in,
     });
@@ -22,9 +22,9 @@ router.get('/', async (req, res) => {
 });
 
 // get single board
-router.get('/board/:id', async (req, res) => {
+router.get('/board/:slug', async (req, res) => {
   try {
-    const boardData = await Board.findByPk(req.params.id, {
+    const boardData = await Board.findByPk(req.params.slug, {
       include: [
         User,
         {
@@ -35,7 +35,7 @@ router.get('/board/:id', async (req, res) => {
     });
     if (boardData) {
       const board = boardData.get({ plain: true });
-      res.render('single-board', { post });
+      res.render('board', { post });
     } else {
       res.status(404).end();
     }
