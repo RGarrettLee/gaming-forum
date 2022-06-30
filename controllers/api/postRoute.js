@@ -7,6 +7,7 @@ const { Post, User } = require("../../models");
 router.get('/', async (req, res) => {
     try {
       const postData = await Post.findAll({
+        attributes: { exclude: ['password'] },
         include: [User],
       });
       const posts = postData.map((post) => post.get({ plain: true }));
@@ -19,6 +20,7 @@ router.get('/', async (req, res) => {
   router.get('/post/:slug', async (req, res) => {
     try {
       const postData = await Board.findByPk(req.params.slug, {
+        attributes: { exclude: ['password'] },
         include: [
           User,
           {

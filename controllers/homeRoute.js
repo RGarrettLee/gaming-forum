@@ -6,7 +6,7 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
   try {
     const boardData = await Board.findAll({
-      //attributes: { exclude: ['password'] },
+      attributes: { exclude: ['password'] },
       include: [User]
     });
 
