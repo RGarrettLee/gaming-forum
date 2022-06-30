@@ -8,6 +8,7 @@ const { Comment, User } = require("../../models");
 router.get('/', async (req, res) => {
     try {
       const commentData = await Comment.findAll({
+        attributes: { exclude: ['password'] },
         include: [User],
       });
       const comments = commentData.map((post) => post.get({ plain: true }));
