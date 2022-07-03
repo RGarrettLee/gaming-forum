@@ -1,11 +1,34 @@
 <div>
     <div class="d-flex justify-content-center">
-    <h2 class="page-title">Home</h2>
+        <h2 class="page-title">Home</h2>
     </div>
+    <div class="d-flex justify-content-center">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#boardModal" id="boardBtn">Create Board</button>
+    </div>
+    <br>
     <ul class="list-group">
         {{#each boards as |board|}}
         {{> homescreen-details}}
         {{/each}}
     </ul>
-    
+    <!-- modal -->
+    <div class="modal fade" id="boardModal" tabindex="-1" aria-labelledby="create-board" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-title">Create Board</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <label for="board-name" class="col-form-label">Board Name:</label>
+                        <input type="text" class="form-control" id="board-name">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" id="boardSubmit">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
