@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const withAuth = require("../../utils/auth");
-const { Comment, User } = require("../../models");
+const { Comment, User, Post } = require("../../models");
 
 
 // get all comments on post page
@@ -12,21 +12,32 @@ router.get('/', async (req, res) => {
         include: [User],
       });
       const comments = commentData.map((post) => post.get({ plain: true }));
-      res.render('post', { posts });
+      res.render('post', { comments });
     } catch (err) {
       res.status(500).json(err);
     }
   });
   
 router.post('/', withAuth, async (req, res) => {
-    const body = req.body;
+    const { content, post_slug } = req.body;
     try {
-      const newComment = await Comment.create({...body , userId: req.session.userId });
-      res.json(newPost);
+      const slug = post_slug.replace('/post/', '');
+
+      const postData = await Post.findOne({
+        where: {
+          slug: slug
+        }
+      });
+
+      const post = postData.get({ plain: true });
+
+      const newComment = await Comment.create({content: content , user_id: req.session.user_id, post_id: post.id });
+      res.json(newComment);
     } catch (err) {
       res.status(500).json(err);
     }
   });
+
   router.put('/:id', withAuth, async (req, res) => {
     try {
       const [affectedRows] = await Comment.update(req.body, {
@@ -43,6 +54,7 @@ router.post('/', withAuth, async (req, res) => {
       res.status(500).json(err);
     }
   });
+
   router.delete('/:id', withAuth, async (req, res) => {
     try {
       const [affectedRows] = Comment.destroy({
