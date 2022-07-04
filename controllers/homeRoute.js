@@ -36,7 +36,7 @@ router.get('/board/:slug', async (req, res) => {
     });
     if (boardData) {
       const board = boardData.get({ plain: true });
-      res.render('board', { board, user_id: req.session.user_id });
+      res.render('board', { board, loggedIn: req.session.logged_in, user_id: req.session.user_id });
     } else {
       res.status(404).end();
     }
