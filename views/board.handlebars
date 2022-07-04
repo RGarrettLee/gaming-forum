@@ -14,10 +14,35 @@
 <div>
     <form>
         <div class="form-group"> 
+            <label for="postTitle">Post Title:</label>
+            <input type="text" class="form-control" id="postTitle" required>
+            <label for="postGenre">Genre:</label>
+            <input list="postGenre" class="form-control" id="genre" required>
+            <datalist id="postGenre">
+                <option value="Casual"></option>
+                <option value="FPS"></option>
+                <option value="RPG"></option>
+                <option value="Social Simulation"></option>
+                <option value="Puzzle"></option>
+                <option value="Horror"></option>
+                <option value="Sandbox"></option>
+                <option value="MOBA"></option>
+                <option value="Party"></option>
+                <option value="Platformer"></option>
+                <option value="Survival"></option>
+                <option value="Mobile"></option>
+                <option value="Battle Royale"></option>
+                <option value="MMO"></option>
+                <option value="Sports"></option>
+                <option value="Open World"></option>
+                <option value="Rhythm"></option>
+            </datalist>
             <label for="Textarea">Make a Post!</label>
-            <textarea class="form-control" id="postInput" rows="3"></textarea>
+            <textarea class="form-control" id="postInput" rows="3" required></textarea>
         </div>
     </form>
-    <button class="btn btn-primary" type="submit" value="submit" id="postBtnBoard">Post</button>
-    <button class="btn btn-primary" type="reset" value="reset" id="cancelBtnBoard">Cancel</button>
+    <button class="btn btn-primary" type="button" value="submit" id="postBtnBoard">Post</button>
+    <button class="btn btn-secondary" type="reset" value="reset" id="cancelBtnBoard">Cancel</button>
 </div>
+
+<script src="/js/post.js"></script>
