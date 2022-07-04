@@ -35,10 +35,12 @@
         <h2>Comments</h2>
         <ul>
             {{#each post.comments as |comment|}}
-            {{> post-comment-details}}
+            <!--{{> post-comment-details}}-->
+            <li>{{content}} by {{user.username}} <button type="button" class="btn btn-danger deleteComment" id="deleteComment" data-content="{{content}}" {{is_owner user_id sess_id }}>Delete Comment</button></li>
             {{/each}}
         </ul>
     </div>
     <script src="/js/comment.js"></script>
     <script src="/js/deletePost.js"></script>
+    <script src="/js/deleteComment.js"></script>
 </div>
