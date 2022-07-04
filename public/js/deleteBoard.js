@@ -2,10 +2,9 @@ const deleteBoard = async function(event) {
     event.preventDefault();
 
     const slug = document.location.pathname.replace('/board/', '');
-    //slug = slug.replace('/board', '');
 
-    const response = await fetch(`/api/home/delete/${slug}`, {
-        method: 'POST',
+    const response = await fetch(`/api/home/${slug}`, {
+        method: 'DELETE',
         headers: { 'Content-Type': 'application/json' }
     });
 

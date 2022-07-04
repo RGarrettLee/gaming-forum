@@ -15,7 +15,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.post('/delete/:slug', async (req, res) => { // delete
+router.delete('/:slug', async (req, res) => { // delete
   try {
     const boardData = await Board.findOne({ where: { slug: req.params.slug }});
     const board = boardData.get({ plain: true });
