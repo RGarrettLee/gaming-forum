@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
       res.status(500).json(err);
     }
 });
-  
+
 router.post('/', withAuth, async (req, res) => {
     const { content, post_slug } = req.body;
     try {
@@ -55,9 +55,14 @@ router.post('/', withAuth, async (req, res) => {
     }
   });
 
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/', withAuth, async (req, res) => {
   try {
+    const { content } = req.body;
+    const commentData = await Comment.findOne({ where: { content: content }});
+    const comment = commentData.get({ plain: true });
 
+    const deletedComment = await Comment.destroy({ where: { id: comment.id }});
+    res.status(204).json(deletedComment);
   } catch (err) {
     res.status(500).json(err);
   }
