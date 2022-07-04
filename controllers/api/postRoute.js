@@ -1,84 +1,57 @@
 const express = require("express");
 const router = express.Router();
 const withAuth = require("../../utils/auth");
-const { Post, User } = require("../../models");
-
-// get all posts on board page
-router.get('/', async (req, res) => {
-    try {
-      const postData = await Post.findAll({
-        attributes: { exclude: ['password'] },
-        include: [User],
-      });
-      const posts = postData.map((post) => post.get({ plain: true }));
-      res.render('board', { posts });
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
-  // get single post
-  router.get('/post/:slug', async (req, res) => {
-    try {
-      const postData = await Board.findByPk(req.params.slug, {
-        attributes: { exclude: ['password'] },
-        include: [
-          User,
-          {
-            model: Post,
-            include: [User],
-          },
-        ],
-      });
-      if (postData) {
-        const post = postData.get({ plain: true });
-        res.render('post', { post });
-      } else {
-        res.status(404).end();
-      }
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
+const { Post, User, Board } = require("../../models");
 
 router.post('/', withAuth, async (req, res) => {
-    const body = req.body;
+    const { title, genre, content, board_slug } = req.body;
+    console.info(title, genre, content, board_slug);
     try {
-      const newPost = await Post.create({...body , userId: req.session.userId });
-      res.json(newPost);
+      const slug = board_slug.replace('/board/', '');
+
+      const boardData = await Board.findOne({ where: { slug: slug }});
+
+      const board = boardData.get({ plain: true });
+
+      const newPost = await Post.create({title: title, genre: genre, content: content, user_id: req.session.user_id, board_id: board.id });
+      res.status(201).json(newPost);
     } catch (err) {
       res.status(500).json(err);
     }
-  });
-  router.put('/:slug', withAuth, async (req, res) => {
-    try {
-      const [affectedRows] = await Post.update(req.body, {
-        where: {
-          slug: req.params.slug,
-        },
-      });
-      if (affectedRows > 0) {
-        res.status(200).end();
-      } else {
-        res.status(404).end();
-      }
-    } catch (err) {
-      res.status(500).json(err);
+});
+
+router.put('/:slug', withAuth, async (req, res) => {
+  try {
+    const [affectedRows] = await Post.update(req.body, {
+      where: {
+        slug: req.params.slug,
+      },
+    });
+    if (affectedRows > 0) {
+      res.status(200).end();
+    } else {
+      res.status(404).end();
     }
-  });
-  router.delete('/:slug', withAuth, async (req, res) => {
-    try {
-      const [affectedRows] = Post.destroy({
-        where: {
-          slug: req.params.slug,
-        },
-      });
-      if (affectedRows > 0) {
-        res.status(200).end();
-      } else {
-        res.status(404).end();
-      }
-    } catch (err) {
-      res.status(500).json(err);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.delete('/:slug', withAuth, async (req, res) => {
+  try {
+    const [affectedRows] = Post.destroy({
+      where: {
+        slug: req.params.slug,
+      },
+    });
+    if (affectedRows > 0) {
+      res.status(200).end();
+    } else {
+      res.status(404).end();
     }
-  });
-  module.exports = router;
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+module.exports = router;
