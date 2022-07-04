@@ -19,6 +19,8 @@
         {{post.content}}
     </div>
     <br>
+    <button type="button" class="btn btn-danger" id="deletePost" {{is_owner post.user_id user_id }}>Delete Post</button>
+    <br>
     <br>
     <div>
         <form>
@@ -28,6 +30,7 @@
             <button class="btn btn-primary" type="submit" value="submit" id="postBtnPost">Post</button>
         </form>
     </div>
+    <br>
     <div>
         <h2>Comments</h2>
         <ul>
@@ -37,4 +40,5 @@
         </ul>
     </div>
     <script src="/js/comment.js"></script>
+    <script src="/js/deletePost.js"></script>
 </div>
