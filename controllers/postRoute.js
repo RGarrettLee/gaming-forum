@@ -33,7 +33,7 @@ router.get('/:slug', async (req, res) => {
         });
         if (postData) {
             const post = postData.get({ plain: true });
-            res.status(200).render('post', { post, loggedIn: req.session.logged_in });
+            res.status(200).render('post', { post, loggedIn: req.session.logged_in, user_id: req.session.user_id });
         } else {
             res.status(404).end();
         }

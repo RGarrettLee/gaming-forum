@@ -5,7 +5,7 @@ const { Post, User, Board } = require("../../models");
 
 router.post('/', withAuth, async (req, res) => {
     const { title, genre, content, board_slug } = req.body;
-    console.info(title, genre, content, board_slug);
+    
     try {
       const slug = board_slug.replace('/board/', '');
 
@@ -37,21 +37,20 @@ router.put('/:slug', withAuth, async (req, res) => {
   }
 });
 
-router.delete('/:slug', withAuth, async (req, res) => {
+router.delete('/:slug', async (req, res) => {
   try {
-    const [affectedRows] = Post.destroy({
-      where: {
-        slug: req.params.slug,
-      },
-    });
-    if (affectedRows > 0) {
-      res.status(200).end();
+    const postData = await Post.findOne({ where: {slug: req.params.slug }});
+    const post = postData.get({ plain: true });
+
+    if (post.user_id == req.session.user_id) {
+      const deletedPost = await Post.destroy({ where: { slug: req.params.slug }});
+      res.status(204).json(deletedPost);
     } else {
-      res.status(404).end();
+      res.status(403).json({ 'message': 'user not authorized' });
     }
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json(err)
   }
-});
+})
 
 module.exports = router;
