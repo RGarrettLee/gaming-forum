@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { Post } = require("../models");
+const { Post, User } = require("../models");
 
 router.get('/', async (req, res) => {
     const postData = await Post.findAll();
@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:genre', async (req, res) => {
-    const postData = await Post.findAll({ where: { genre: req.params.genre }});
+    const postData = await Post.findAll({ where: { genre: req.params.genre },include:[User]});
     const posts = postData.map((post) => post.get({ plain: true }));
     res.status(200).render('genre', { posts }); // replace handlebar with appropriate handlebar
 });

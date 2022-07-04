@@ -1,0 +1,11 @@
+<div>
+    <hi>{{genre}}</hi>
+
+    <div class="boardBlock">
+        <ul>
+        {{#each posts as |post|}}
+        {{> genre-details}}
+        {{/each}}
+        </ul>
+    </div>
+</div>
