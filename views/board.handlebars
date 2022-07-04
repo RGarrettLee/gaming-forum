@@ -1,5 +1,7 @@
 <div>
     <h1>{{board.name}}</h1>
+    
+    <button type="button" class="btn btn-danger" id="deleteBoard" {{is_owner board.user_id user_id }}>Delete Board</button>
     <button id="createThreadBtn" > + create thread</button>
     <br>
     <div class="postBox">
@@ -46,3 +48,4 @@
 </div>
 
 <script src="/js/post.js"></script>
+<script src="/js/deleteBoard.js"></script>
