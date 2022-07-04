@@ -1,6 +1,7 @@
 html,body {
     height: 100%;
     background-color:whitesmoke;
+    padding: 5px;
 }
 
 .postBox{
@@ -20,4 +21,10 @@ html,body {
 
 .listColor{
     background-color: aliceblue;
+}
+
+.boardBlock{
+    border: 1px solid black;
+    background-color: azure;
+    padding: 25px;
 }

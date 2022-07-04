@@ -5,7 +5,7 @@
     <button id="createThreadBtn" > + create thread</button>
     <br>
     <div>
-        <ul>
+        <ul class="boardBlock">
             {{#each board.posts as |post|}}
             {{> board-details}}
             {{/each}}
