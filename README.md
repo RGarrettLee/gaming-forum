@@ -4,7 +4,7 @@ A gaming forum that allows everyone to view entries on their favorite videogames
 
 
 github: https://github.com/RGarrettLee/gaming-forum
-Heroku: https://git.heroku.com/serene-reaches-32005.git
+Heroku: https://serene-reaches-32005.herokuapp.com/
 
 Uses MVC structuring alongside mysql and sequelize to run the database. Node.JS and express.JS are used to create a REST compliant API.
 The layout of the application was handled via templates ran with handlebars.js.
