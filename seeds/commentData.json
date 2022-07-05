@@ -1,35 +1,42 @@
 [
     {
+        "id": 1,
         "content": "this is an L take",
         "user_id": 2,
         "post_id": 1
     },
     {
+        "id": 2,
         "content": "Notes: L  R  A  L  R  A ",
         "user_id": 5,
         "post_id": 2
     },
     {
+        "id": 3,
         "content": "Perimeters, always.",
         "user_id": 3,
         "post_id": 4
     },
     {
+        "id": 4,
         "content": "Build mode 3 all the way",
         "user_id": 1,
         "post_id": 6
     },
     {
+        "id": 5,
         "content": "Buy mode 1 just got sampled in a song I heard!",
         "user_id": 3,
         "post_id": 6
     },
     {
+        "id": 6,
         "content": "Cool find!",
         "user_id": 4,
         "post_id": 3
     },
     {
+        "id": 7,
         "content": "The Golden Seed is always a good choice",
         "user_id": 1,
         "post_id": 7
