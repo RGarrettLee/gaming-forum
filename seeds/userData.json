@@ -1,25 +1,30 @@
 [
     {
+        "id": 1,
         "username": "Garrett",
         "email": "garrett@email.com",
         "password": "thisisapassword"
     },
     {
+        "id": 2,
         "username": "Link",
         "email": "link@email.com",
         "password": "password12345"
     },
     {
+        "id": 3,
         "username": "Russell",
         "email": "russell@email.com",
         "password": "12345678"
     },
     {
+        "id": 4,
         "username": "Sal",
         "email": "sal@email.com",
         "password": "salssupersecurepassword"
     },
     {
+        "id": 5,
         "username": "Rudie",
         "email": "rudie@email.com",
         "password": "topchef1234"

@@ -1,5 +1,6 @@
 [
     {
+        "id": 1,
         "title": "BO3 Gorod Krovi Easter Egg",
         "genre": "FPS",
         "content": "this is the worst map in the game",
@@ -7,6 +8,7 @@
         "board_id": 1
     },
     {
+        "id": 2,
         "title": "Ocarina of time: Song of Storms",
         "genre": "RPG",
         "content": "Can someone please remind me of the keys for this?",
@@ -14,6 +16,7 @@
         "board_id": 4
     },
     {
+        "id": 3,
         "title": "Majora's Mask: Easter Egg",
         "genre": "RPG",
         "content": "In the Clock Tower, if Link goes under the water in his Zora form, he can see four pieces of algae shaped like Nintendo 64 controllers.",
@@ -21,6 +24,7 @@
         "board_id": 4
     },
     {
+        "id": 4,
         "title": "1942: control points",
         "genre": "FPS",
         "content": "What do you find is the best strategy for placing your control points?",
@@ -28,6 +32,7 @@
         "board_id": 2
     },
     {
+        "id": 5,
         "title": "The Sims 4: Build mode errors",
         "genre": "Social Simulation",
         "content": "I keep getting insufficient funds but only in build mode, anyone else have this issue?",
@@ -35,6 +40,7 @@
         "board_id": 5
     },
     {
+        "id": 6,
         "title": "The Sims 1: Music",
         "genre": "Social Simulation",
         "content": "Okay but anyone else find the neighborhood 3 track slaps???",
@@ -42,6 +48,7 @@
         "board_id": 5
     },
     {
+        "id": 7,
         "title": "Keepsakes",
         "genre": "RPG",
         "content": "What keepsake should I start with?",

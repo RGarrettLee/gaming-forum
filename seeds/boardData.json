@@ -1,22 +1,32 @@
 [
     {
+        "id": 1,
         "name": "COD Zombies Easter Eggs",
+        "slug": "codzombies",
         "user_id": 1
     },
     {
+        "id": 2,
         "name": "Battlefield",
+        "slug": "battlefield",
         "user_id": 5
     },
     {
+        "id": 3,
         "name": "Elden Ring",
+        "slug": "eldenring",
         "user_id": 3
     },
     {
+        "id": 4,
         "name": "Legend of Zelda",
+        "slug": "legendofzelda",
         "user_id": 2
     },
     {
+        "id": 5,
         "name": "The Sims",
+        "slug": "thesims",
         "user_id": 4
     }
 ]
